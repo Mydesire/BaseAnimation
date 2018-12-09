@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/menu_about"
+        android:orderInCategory="3"
+        android:title="关于"
+        app:showAsAction="ifRoom|withText"/>
+
+    <item
+        android:id="@+id/menu_feedback"
+        android:orderInCategory="2"
+        android:title="反馈"
+        app:showAsAction="always|withText"/>
+
+    <item
+        android:id="@+id/menu_share"
+        android:orderInCategory="1"
+        android:title="分享"
+        app:showAsAction="collapseActionView|withText"/>
+
+    <!-- 计算器菜单开始 -->
+    <item
+        android:id="@+id/changeInput"
+        android:title="切换输入"/>
+    <item
+        android:id="@+id/helpAbout"
+        android:title="帮助/关于"/>
+    <item
+        android:id="@+id/exit"
+        android:title="退出"/>
+    <!-- 计算器菜单结束 -->
+</menu>

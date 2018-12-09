@@ -1,0 +1,69 @@
+package com.xhq.baseanimation.ui.splash.fade;
+
+import android.content.Intent;
+import android.os.Handler;
+
+import com.xhq.baseanimation.R;
+import com.xhq.baseanimation.ui.base.BaseActivity;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class FadeSplashScreenActivity extends BaseActivity {
+
+	Class<?> activityClass;
+	Class[] paramTypes = { Integer.TYPE, Integer.TYPE };
+
+	Method overrideAnimation = null;
+
+	@Override
+	public void setView() {
+		setContentView(R.layout.activity_splash_fade_main);
+
+		
+	}
+
+	@Override
+	public void initView() {
+		try {
+			activityClass = Class.forName("android.app.Activity");
+			overrideAnimation = activityClass.getDeclaredMethod(
+					"overridePendingTransition", paramTypes);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				Intent i = new Intent(FadeSplashScreenActivity.this,
+						FadeMainActivity.class);
+				startActivity(i);
+				finish();
+				if (overrideAnimation != null) {
+					try {
+						overrideAnimation.invoke(FadeSplashScreenActivity.this, android.R.anim.fade_in,
+								android.R.anim.fade_out);
+					} catch (IllegalArgumentException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IllegalAccessException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		}, 2000);
+		
+	}
+
+	@Override
+	public void setListener() {
+		// TODO Auto-generated method stub
+		
+	}
+}

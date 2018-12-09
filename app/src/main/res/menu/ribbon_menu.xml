@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/ribbon_menu_home"
+        android:icon="@drawable/ic_launcher"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/ribbon_menu_home2"
+        android:icon="@drawable/ic_launcher"
+        android:title="Home2"/>
+
+    <item
+        android:id="@+id/ribbon_menu_home3"
+        android:icon="@drawable/ic_launcher"
+        android:title="Home3"/>
+
+</menu>
